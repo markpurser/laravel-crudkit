@@ -1,0 +1,36 @@
+{
+    "name": "markpurser/laravel-crudkit",
+    "description": "Open source CRUD framework for Laravel",
+    "keywords": [
+        "crud",
+        "crudkit",
+        "laravel",
+        "laravel-crudkit",
+        "database",
+        "sql",
+        "frontend",
+        "gui",
+        "interface",
+        "scaffold",
+        "framework"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/markpurser/laravel-crudkit/issues",
+        "source": "https://github.com/markpurser/laravel-crudkit"
+    },
+    "authors": [
+        {
+            "name": "Mark Purser",
+            "email": "mail@markpurser.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+
+}
