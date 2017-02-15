@@ -12,7 +12,7 @@ use Exception;
 
 class AdminPanelController extends Controller
 {
-    private $pageStore;
+    private $pageStore = null;
 
     /**
      * Create a new controller instance.
@@ -37,6 +37,11 @@ class AdminPanelController extends Controller
     public function index(Request $request)
     {
         $pageName = null;
+
+        if(!$this->pageStore)
+        {
+            return redirect()->action('\Markpurser\LaravelCrudKit\AdminPanelController@error', ['message' => 'No pages found.']);
+        }
 
         if( $request->has('page') )
         {
@@ -141,7 +146,7 @@ class AdminPanelController extends Controller
 
         $pageDescriptor->delete($itemId);
 
-        return redirect()->action('AdminPanelController@index', ['page' => $pageName]);
+        return redirect()->action('\Markpurser\LaravelCrudKit\AdminPanelController@index', ['page' => $pageName]);
     }
 
     /**
@@ -401,7 +406,12 @@ class AdminPanelController extends Controller
         $message = $request->input('message');
 
         return view('laravel-crudkit::errors.admin-panel-error', [
-            'message' => $message
+            'message' => $message,
+            'page' => 'none',
+            'primaryKey' => -1,
+            'itemId' => -1,
+            'pageLabel' => 'Error',
+            'pageMap' => []
         ]);
     }
 
