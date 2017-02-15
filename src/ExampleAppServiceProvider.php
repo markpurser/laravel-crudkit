@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Markpurser\LaravelCrudKit;
 
 use Illuminate\Support\ServiceProvider;
 
