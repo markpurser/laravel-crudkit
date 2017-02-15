@@ -71,7 +71,10 @@
                             <div ng-switch-when="boolean">
                                 {% booleanToString(row[col.key]) %}
                             </div>
-                            <div ng-switch-when="primaryLink">
+                             <div ng-switch-when="editabledropdown">
+                                {% row[col.key] %}
+                            </div>
+                           <div ng-switch-when="primaryLink">
                                 <a ng-href="{% itemLink(row) %}">{% row[col.key] %}</a>
                             </div>
                         </div>
