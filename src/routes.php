@@ -1,7 +1,7 @@
 <?php
 
 
-Route::group(['middleware' => 'web', 'namespace' => 'Markpurser\LaravelCrudKit'], function () {
+Route::group(['middleware' => 'web', 'namespace' => 'Markpurser\LaravelCrudKit\Controllers'], function () {
 
 	// Laravel CrudKit Admin Panel Routes
 	Route::get('/admin-panel', 'AdminPanelController@index');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Markpurser\LaravelCrudKit\AdminPanel;
+namespace Markpurser\LaravelCrudKit\Classes;
 
 use DB;
 

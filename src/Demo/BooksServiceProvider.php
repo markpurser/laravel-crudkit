@@ -1,13 +1,13 @@
 <?php
 
-namespace Markpurser\LaravelCrudKit\demo;
+namespace Markpurser\LaravelCrudKit\Demo;
 
 use Illuminate\Support\ServiceProvider;
 
-use Markpurser\LaravelCrudKit\AdminPanelController;
-use Markpurser\LaravelCrudKit\AdminPanel\PageStore;
-use Markpurser\LaravelCrudKit\AdminPanel\TableDescriptor;
-use Markpurser\LaravelCrudKit\AdminPanel\PageDescriptor;
+use Markpurser\LaravelCrudKit\Controllers\AdminPanelController;
+use Markpurser\LaravelCrudKit\Classes\PageStore;
+use Markpurser\LaravelCrudKit\Classes\TableDescriptor;
+use Markpurser\LaravelCrudKit\Classes\PageDescriptor;
 
 use DB;
 

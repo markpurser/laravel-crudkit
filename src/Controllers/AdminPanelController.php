@@ -1,6 +1,6 @@
 <?php
 
-namespace Markpurser\LaravelCrudKit;
+namespace Markpurser\LaravelCrudKit\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -40,7 +40,7 @@ class AdminPanelController extends Controller
 
         if(!$this->pageStore)
         {
-            return redirect()->action('\Markpurser\LaravelCrudKit\AdminPanelController@error', ['message' => 'No pages found.']);
+            return redirect()->action('\Markpurser\LaravelCrudKit\Controllers\AdminPanelController@error', ['message' => 'No pages found.']);
         }
 
         if( $request->has('page') )
@@ -146,7 +146,7 @@ class AdminPanelController extends Controller
 
         $pageDescriptor->delete($itemId);
 
-        return redirect()->action('\Markpurser\LaravelCrudKit\AdminPanelController@index', ['page' => $pageName]);
+        return redirect()->action('\Markpurser\LaravelCrudKit\Controllers\AdminPanelController@index', ['page' => $pageName]);
     }
 
     /**
