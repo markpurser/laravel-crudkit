@@ -1,6 +1,6 @@
 <?php
 
-namespace Markpurser\LaravelCrudKit;
+namespace Markpurser\LaravelCrudKit\demo;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,7 +11,7 @@ use Markpurser\LaravelCrudKit\AdminPanel\PageDescriptor;
 
 use DB;
 
-class ExampleAppServiceProvider extends ServiceProvider
+class BooksServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -49,9 +49,9 @@ class ExampleAppServiceProvider extends ServiceProvider
                 ->addColumn('title', 'Title', 'string', ['required' => true, 'max' => 255])
                 ->addColumn('description', 'Description', 'textarea', ['max' => 65535])
                 ->addColumn('price', 'Price', 'price', ['required' => true])
-                ->addColumn('genre', 'Genre', 'enum', ['required' => true, 'enum' => ['Suspense', 'Crime', 'Romance', 'Computing', 'Horror']])
+                ->addColumn('genre', 'Genre', 'enum', ['required' => true, 'enum' => ['Travel', 'Crime', 'Romance', 'Computing', 'Horror']])
                 ->addColumn('tag', 'Tag', 'editabledropdown')
-                ->addColumn('rating', 'Rating', 'number')
+                ->addColumn('rating', 'Rating', 'percentage')
                 ->addColumn('pub_date', 'Publish Date', 'datetime', ['required' => true]);
 
             $publisherTable = (new TableDescriptor('publisher', 'Publisher'))
@@ -61,7 +61,7 @@ class ExampleAppServiceProvider extends ServiceProvider
 
             // Relationships
             $titleTable
-                ->addManyToOne($publisherTable, 'pub_id', 'name', ['required' => true, 'tip' => 'Add a publisher of the title'])
+                ->addManyToOne($publisherTable, 'pub_id', 'name', ['required' => true, 'tip' => 'Select a publisher of the title'])
                 ->addManyToMany($authorTable, "lastname", "author_title", "title_id", "author_id");
 
             $authorTable
@@ -73,7 +73,7 @@ class ExampleAppServiceProvider extends ServiceProvider
 
                 (new PageDescriptor('Author'))
                     ->addTable($authorTable)
-                    ->setSummaryColumns(['firstname', 'lastname', 'active'])
+                    ->setSummaryColumns(['lastname', 'firstname', 'active'])
                     ->setInitialValuesCallback(function ($columns) {
 
                         $columns['active']->data = 1;
