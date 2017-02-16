@@ -57,7 +57,7 @@ app.controller("SummaryTableController", function ($scope, $http, Page, PrimaryK
     };
 
     var update_data = function () {
-        $http.get('/admin-panel/api/getrows?page='+$scope.page+"&currentpage="+$scope.currentPage+"&itemsperpage=10&searchcolumn="+$scope.searchcolumn+"&searchtext="+$scope.searchtext).then(function (data) {
+        $http.get('/admin-panel/api/getrows?page='+$scope.page+"&currentpage="+$scope.currentPage+"&searchcolumn="+$scope.searchcolumn+"&searchtext="+$scope.searchtext).then(function (data) {
             $scope.rows.length = 0;
             $scope.rows = data.data.rows;
             $scope.rowCount = data.data.rowCount;

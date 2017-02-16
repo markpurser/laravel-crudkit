@@ -19,6 +19,10 @@ class CrudKitServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'laravel-crudkit');
 
         $this->publishes([
+            __DIR__.'/config/crudkit.php' => config_path('crudkit.php'),
+        ], 'config');
+
+        $this->publishes([
             __DIR__.'/assets' => public_path('laravel-crudkit'),
         ], 'public');
     }

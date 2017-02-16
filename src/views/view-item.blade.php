@@ -26,7 +26,7 @@
 
                 <dd ng-if="col.type == 'boolean'" style="margin-top: 15px">{% booleanToString(col.data) %} </dd>
 
-                <dd ng-if="col.type == 'price'" style="margin-top: 15px">{% col.data | currency:"&pound;" %} </dd>
+                <dd ng-if="col.type == 'price'" style="margin-top: 15px">{% col.data | currency:"{{ config('crudkit.currency_symbol') }}" %} </dd>
 
                 <dd ng-if="col.type == 'percentage'" style="margin-top: 15px">{% col.data %}% </dd>
 

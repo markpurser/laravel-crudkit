@@ -57,7 +57,7 @@
                                 {% row[col.key] %}
                             </div>
                             <div ng-switch-when="price">
-                                {% row[col.key] | currency:"&pound;" %}
+                                {% row[col.key] | currency:"{{ config('crudkit.currency_symbol') }}" %}
                             </div>
                             <div ng-switch-when="percentage">
                                 {% row[col.key] %}%
@@ -82,7 +82,7 @@
                 </tr>
             </tbody>
         </table>
-        <pagination total-items="rowCount" ng-model="currentPage" items-per-page=10 max-size=10 rotate="false" boundary-links="false" ng-change="pageChanged()"></pagination>
+        <pagination total-items="rowCount" ng-model="currentPage" items-per-page={{ config('crudkit.pagination_items_per_page') }} max-size=10 rotate="false" boundary-links="false" ng-change="pageChanged()"></pagination>
     </div>
 </div>
 

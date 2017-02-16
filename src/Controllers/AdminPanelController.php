@@ -176,9 +176,10 @@ class AdminPanelController extends Controller
     {
         $pageName = $request->input('page');
         $currentPage = $request->input('currentpage');
-        $itemsPerPage = $request->input('itemsperpage');
         $searchcolinput = $request->input('searchcolumn');
         $searchtextinput = $request->input('searchtext');
+
+        $itemsPerPage = config('crudkit.pagination_items_per_page');
 
         $pageDescriptor = $this->pageStore->getPageDescriptor($pageName);
 
