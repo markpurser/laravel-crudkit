@@ -4,11 +4,11 @@
 @section('laravel-crudkit-action-buttons')
 
 @if ($updatable)
-<a class="btn btn-primary pull-right" href="{{ url('admin-panel-edit-item?page='.$page.'&item-id='.$itemId) }}" style="margin-left: 10px;"><i class="fa fa-pencil"></i> Edit</a>
+<a class="btn btn-primary pull-right" href="{{ url('admin-panel/edit-item?page='.$page.'&item-id='.$itemId) }}" style="margin-left: 10px;"><i class="fa fa-pencil"></i> Edit</a>
 @endif
 
 @if ($deletable)
-<a class="btn btn-danger pull-right" href="{{ url('admin-panel-delete-item?page='.$page.'&item-id='.$itemId) }}"><i class="fa fa-trash"></i> Delete</a>
+<a class="btn btn-danger pull-right" href="{{ url('admin-panel/delete-item?page='.$page.'&item-id='.$itemId) }}"><i class="fa fa-trash"></i> Delete</a>
 @endif
 
 @endsection

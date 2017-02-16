@@ -3,7 +3,7 @@
 @section('laravel-crudkit-action-buttons')
 
 @if ($creatable)
-<a href="{{ url('admin-panel-add-item?page='.$page) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add New</a>
+<a href="{{ url('admin-panel/add-item?page='.$page) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add New</a>
 @endif
 
 @endsection

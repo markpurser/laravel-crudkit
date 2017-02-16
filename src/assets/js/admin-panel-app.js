@@ -45,7 +45,7 @@ app.controller("SummaryTableController", function ($scope, $http, Page, PrimaryK
     $scope.currentPage = 1;
 
     $scope.itemLink = function (row) {
-        return 'admin-panel-view-item?page=' + $scope.page + '&item-id=' + row['id'];
+        return '/admin-panel/view-item?page=' + $scope.page + '&item-id=' + row['id'];
     };
 
     $scope.booleanToString = function (val) {
@@ -57,23 +57,23 @@ app.controller("SummaryTableController", function ($scope, $http, Page, PrimaryK
     };
 
     var update_data = function () {
-        $http.get('admin-panel/api/getrows?page='+$scope.page+"&currentpage="+$scope.currentPage+"&itemsperpage=10&searchcolumn="+$scope.searchcolumn+"&searchtext="+$scope.searchtext).then(function (data) {
+        $http.get('/admin-panel/api/getrows?page='+$scope.page+"&currentpage="+$scope.currentPage+"&itemsperpage=10&searchcolumn="+$scope.searchcolumn+"&searchtext="+$scope.searchtext).then(function (data) {
             $scope.rows.length = 0;
             $scope.rows = data.data.rows;
             $scope.rowCount = data.data.rowCount;
         },
         function(err){
-            window.location.href = "admin-panel-error?message=" + err.statusText;
+            window.location.href = "/admin-panel/error?message=" + err.statusText;
         });
     };
 
-    $http.get('admin-panel/api/getschema?page='+$scope.page).then(function (data) {
+    $http.get('/admin-panel/api/getschema?page='+$scope.page).then(function (data) {
         $scope.columns = data.data;
         console.log($scope.columns);
         update_data ();
     },
     function(err){
-        window.location.href = "admin-panel-error?message=" + err.statusText;
+        window.location.href = "/admin-panel/error?message=" + err.statusText;
     });
 });
 
@@ -91,11 +91,11 @@ app.controller("ViewFormController", function ($scope, $http, Page, PrimaryKey, 
         return parseInt(val)?'yes':'no';
     };
 
-    $http.get('admin-panel/api/getrecord?page='+$scope.page+'&item-id='+$scope.itemId+'&edit-form=false').then(function (data) {
+    $http.get('/admin-panel/api/getrecord?page='+$scope.page+'&item-id='+$scope.itemId+'&edit-form=false').then(function (data) {
         $scope.columns = data.data;
     },
     function(err){
-        window.location.href = "admin-panel-error?message=" + err.statusText;
+        window.location.href = "/admin-panel/error?message=" + err.statusText;
     });
 
 });
@@ -132,33 +132,33 @@ app.controller("EditFormController", function ($scope, $http, Page, PrimaryKey, 
 
         if($scope.itemId == -1) {
 
-            $http.post('admin-panel/api/create?page='+$scope.page, $scope.columns).then(function (data) {
+            $http.post('/admin-panel/api/create?page='+$scope.page, $scope.columns).then(function (data) {
                 console.log(data);
                 if(data.data.error)
                 {
-                    window.location.href = "admin-panel-error?message=" + data.data.error;
+                    window.location.href = "/admin-panel/error?message=" + data.data.error;
                 }
                 else {
-                    window.location.href = "admin-panel?page=" + $scope.page;
+                    window.location.href = "/admin-panel?page=" + $scope.page;
                 }
             },
             function(err){
-                window.location.href = "admin-panel-error?message=" + err.statusText;
+                window.location.href = "/admin-panel/error?message=" + err.statusText;
             });
         }
         else {
 
-            $http.post('admin-panel/api/update?page='+$scope.page+'&item-id='+$scope.itemId, $scope.columns).then(function (data) {
-                window.location.href = "admin-panel?page=" + $scope.page;
+            $http.post('/admin-panel/api/update?page='+$scope.page+'&item-id='+$scope.itemId, $scope.columns).then(function (data) {
+                window.location.href = "/admin-panel?page=" + $scope.page;
             },
             function(err){
-                window.location.href = "admin-panel-error?message=" + err.statusText;
+                window.location.href = "/admin-panel/error?message=" + err.statusText;
             });
         }
     }
 
     $scope.cancel = function () {
-        window.location.href = "admin-panel?page=" + $scope.page;
+        window.location.href = "/admin-panel?page=" + $scope.page;
     }
 
     $scope.addManyToMany = function (col) {
@@ -193,7 +193,7 @@ app.controller("EditFormController", function ($scope, $http, Page, PrimaryKey, 
         col.data.splice(index, 1);
     };
 
-    $http.get('admin-panel/api/getrecord?page='+$scope.page+'&item-id='+$scope.itemId+'&edit-form=true').then(function (data) {
+    $http.get('/admin-panel/api/getrecord?page='+$scope.page+'&item-id='+$scope.itemId+'&edit-form=true').then(function (data) {
         $scope.columns = data.data;
         console.log($scope.columns);
 
@@ -205,7 +205,7 @@ app.controller("EditFormController", function ($scope, $http, Page, PrimaryKey, 
         });
     },
     function(err){
-        window.location.href = "admin-panel-error?message=" + err.statusText;
+        window.location.href = "/admin-panel/error?message=" + err.statusText;
     });
     
 });
