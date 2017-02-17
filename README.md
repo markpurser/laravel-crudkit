@@ -50,6 +50,7 @@ Many of the features that were experimental or incomplete in the original http:/
 * Correct pagination of entries in the summary view
 * Simple search
 * Support for soft delete and Laravel timestamps
+* Improved fluent interface to define tables, pages and relationships
 
 Inspired by http://crudkit.com, this project is a complete rewrite with a simplified codebase.
 
