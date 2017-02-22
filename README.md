@@ -67,6 +67,10 @@ Coming soon
 
 If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
+## Credits
+
+http://markpurser.co.uk
+
 ## Licensing
 
 The code in this project is licensed under MIT license.
