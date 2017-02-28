@@ -3,6 +3,8 @@
 
 Open source CRUD framework for Laravel 5.3+.
 
+![Admin-panel](http://markpurser.co.uk/laravel-crudkit-docs/admin-panel.png)
+
 ## Should use this if...
 
 * You need a front-end to your existing MySQL or Sqlite relational database
