@@ -56,7 +56,7 @@ Inspired by http://crudkit.com, this project is a complete rewrite with a simpli
 
 ## Documentation
 
-Coming soon
+https://github.com/markpurser/laravel-crudkit/wiki
 
 ## Future Roadmap
 
