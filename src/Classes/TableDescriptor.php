@@ -74,10 +74,10 @@ class TableDescriptor
         return $this;
     }
 
-    public function addTimestamps()
+    public function addTimestamps($created_at = 'created_at', $updated_at = 'updated_at')
     {
-        $this->columns['created_at'] = new SQLColumn('created_at', 'Created At', 'datetime', ['hide_editform' => true]);
-        $this->columns['updated_at'] = new SQLColumn('updated_at', 'Updated At', 'datetime', ['hide_editform' => true]);
+        $this->columns['created_at'] = new SQLColumn($created_at, 'Created At', 'datetime', ['hide_editform' => true]);
+        $this->columns['updated_at'] = new SQLColumn($updated_at, 'Updated At', 'datetime', ['hide_editform' => true]);
 
         $this->hasTimestamps = true;
 
